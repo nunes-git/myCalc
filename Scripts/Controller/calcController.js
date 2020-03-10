@@ -10,28 +10,30 @@ class calcController {
 
   }
 
-  execBtn(){
-    // switch()
+  execBtn(value){
+     switch(value){
+      
+     }
   }
+
+  addEventListenerAll(element, events, fn){
+
+    events.split(" ").forEach(event => {
+        element.addEventListener(event, fn, false);
+    });
+}
 
   getButton(){
 
-    // let buttons = document.querySelectorAll("div > #buttons");
-    let buttons = document.getElementById("buttons");
-    console.log(buttons);
-
-    // buttons.forEach(btn => {
-    //   document.addEventListener("click", e=>{
-    //     console.log(e);
-    //   });
-    // });
+    let buttons = document.querySelectorAll("div > button");
 
     buttons.forEach((btn, index) => {
       
-      document.addEventListener("click", e=>{
+      this.addEventListenerAll(btn, "click drag", e=>{
         let textBtn = btn.innerHTML;
-        console.log(e);
+        console.log(textBtn);
         this.execBtn(textBtn);
+
         });
     });
   }
